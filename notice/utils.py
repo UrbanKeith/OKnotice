@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from main_ok.models import Recipient, Chat, ChatStatus, RecipientStatus, Message, MessageStatus
+from notice.models import Recipient, Chat, ChatStatus, RecipientStatus, Message, MessageStatus
 from OKBot.bot import OKBot
 
 
@@ -31,7 +31,7 @@ def check_pending_message(bot: OKBot):
     message_list = Message.objects.filter(status=MessageStatus.PENDING, send_date__lte=datetime.now())
     if message_list.count():
         for message in message_list:
-            user_list = Recipient.objects.filter(status=RecipientStatus.ACTIVE).values_list('user_id', flat=True)
+            user_list = message.objects.values_list('recipients__user_id', flat=True)
             is_not_send = bot.send_mailing_message(user_list, message.text)
             if is_not_send:
                 message.status = MessageStatus.ERROR

@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class MainOkConfig(AppConfig):
+class NoticeConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'main_ok'
+    name = 'notice'
