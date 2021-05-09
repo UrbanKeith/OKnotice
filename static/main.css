@@ -1,0 +1,19 @@
+body {
+    background-color: #EDEEF0;
+}
+
+.body-container{
+    margin-top: 60px;
+}
+
+.side-menu{
+    width: 200px;
+}
+
+.main-item {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    background-color: #FFFFFF;
+    border: 1px solid #DCE1E6;
+}
+
