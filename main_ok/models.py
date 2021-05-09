@@ -20,7 +20,7 @@ class ChatStatus(models.IntegerChoices):
 
 class Chat(models.Model):
     """
-    Модель для сохранения статусов
+    Модель для сохранения чатов с пользователями
     """
     chat_id = models.CharField(max_length=50)
     url = models.URLField()
@@ -44,4 +44,5 @@ class Message(models.Model):
     text = models.CharField(max_length=1500)
     status = models.PositiveIntegerField(choices=MessageStatus, default=MessageStatus.PENDING)
     send_date = models.DateTimeField()
+    recipients = models.ManyToManyField(Recipient)
 
